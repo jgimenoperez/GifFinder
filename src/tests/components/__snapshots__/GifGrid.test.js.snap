@@ -1,0 +1,43 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Pruebas en el Gifgrid Debe de mostarse correctamente  1`] = `
+<Fragment>
+  <h3
+    className="animate__animated animate__shakeY"
+  >
+     
+    One Punch
+     
+  </h3>
+  <p
+    className="animate__animated animate__flash"
+  >
+    Loading
+  </p>
+  <div
+    className="card-grid"
+  />
+</Fragment>
+`;
+
+exports[`Pruebas en el Gifgrid debe de mostrar items cuando se cargan imagenes userFetch 1`] = `
+<Fragment>
+  <h3
+    className="animate__animated animate__shakeY"
+  >
+     
+    One Punch
+     
+  </h3>
+  <div
+    className="card-grid"
+  >
+    <GifGridItem
+      id="123"
+      key="123"
+      title="lo que sea"
+      url="https:\\\\www.manosdehada.es "
+    />
+  </div>
+</Fragment>
+`;
