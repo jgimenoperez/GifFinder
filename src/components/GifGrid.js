@@ -1,50 +1,35 @@
-import React from 'react'
+import React from 'react';
 import PropTypes from 'prop-types';
-import { useFetchgifs } from '../hooks/useFetchgifs'
-import { GifGridItem } from './GifGridItem'
+import { useFetchgifs } from '../hooks/useFetchgifs';
+import { GifGridItem } from './GifGridItem';
 
+export const GifGrid = ({ categorie }) => {
+  const { data: images, loading } = useFetchgifs(categorie);
 
+  // getGifs({categorie})
 
-export const GifGrid = ({categorie}) => {
+  return (
+    <>
+      <h3 className="animate__animated animate__shakeY"> {categorie} </h3>
 
-    const {data:images,loading}=useFetchgifs( categorie )
+      {loading && <p className="animate__animated animate__flash">Loading</p>}
 
+      <div className="card-grid">
+        {images.map((img) => (
+          <GifGridItem
+            key={img.id}
+            // img= {img}
+            {...img}
+          />
+        ))}
 
-    // getGifs({categorie})
-
-    return (
-        
-        <>
-            <h3 className="animate__animated animate__shakeY"> {categorie} </h3>
-
-            {loading && <p className="animate__animated animate__flash">Loading</p> }  
-
-            <div className="card-grid">
-
-            {
-                images.map( (img)   =>(
-
-                    <GifGridItem
-                    key= {img.id}
-                    // img= {img} 
-                    {...img} />
-
-                ))
-
-            }
-
-
-            {/* <h3> {count} </h3>
+        {/* <h3> {count} </h3>
             <button onClick = { ()=>setcount(count+1) } ></button> */}
-            </div>
+      </div>
+    </>
+  );
+};
 
-        </>     
-
-    )
-}
-
-GifGrid.propTypes ={
-
-    categorie:PropTypes.string.isRequired
-
-}
+GifGrid.propTypes = {
+  categorie: PropTypes.string.isRequired,
+};

@@ -1,6 +1,6 @@
 # Getting Started with Create React App
 
-This project allow to permof searches for animate gifs
+This project allow to permof searches for animate gifs using the apiweb https://api.giphy.com
 
 ## Available Scripts
 

@@ -1,55 +1,34 @@
-import React, {useState} from 'react'
+import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 
-export const AddCategory = ( {setcategories} ) => {
+export const AddCategory = ({ setcategories }) => {
+  const [inputvalue, setinputvalue] = useState(``);
 
-    const [inputvalue, setinputvalue] = useState(``)
+  const handleImputChange = (e) => {
+    //console.log('handleImputChange llamado');
+    setinputvalue(e.target. value);
+  };
 
-    const handleImputChange=(e)=>{
+  const handdleSubmit = (e) => {
+    e.preventDefault();
 
-            console.log('handleImputChange llamado')
-            setinputvalue(e.target.value)
+    if (inputvalue.trim().length > 2) {
+      setcategories((cats) => [inputvalue, ...cats]);
+      setinputvalue('');
     }
 
-    const hasdleSubmit=(e)=>{
+  };
 
-            e.preventDefault()
-            console.log('Handel submit')
+  return (
+    <div>
+      <form onSubmit={handdleSubmit}>
+        {/* <p>{inputvalue}</p> */}
+        <input type="text" value={inputvalue} onChange={handleImputChange} />
+      </form>
+    </div>
+  );
+};
 
-            if (inputvalue.trim().length>2)
-            {
-                setcategories( cats => [inputvalue,...cats,]);      
-                setinputvalue('')
-            }
-            // console.log('Submit hecho')
-            
-            // console.log(props.otracosa)
-    }
-
-
-
-    return (
-        <div>
-
-           <form onSubmit={hasdleSubmit}>
-
-                <p>{inputvalue}</p>
-
-                <input
-                    type="text"
-                    value={inputvalue}
-                    onChange={ handleImputChange }
-                />
-
-            </form>    
-
-            
-        </div>
-    )
-}
- 
 AddCategory.propTypes = {
-
-    setcategories:PropTypes.func.isRequired
-
-}
+  setcategories: PropTypes.func.isRequired,
+};

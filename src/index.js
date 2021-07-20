@@ -1,12 +1,12 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
-import {GifExpertApp} from './GifExpertApp'
+import {GifExpertApp as GifFindApp} from './GifExpertApp'
 
 
 ReactDOM.render(
   <React.StrictMode>
-    <GifExpertApp defaultcategories={['one punch',"goku"]} />
+    <GifFindApp defaultcategories={['one punch',"goku"]} />
   </React.StrictMode>,
   document.getElementById('root')
 );
