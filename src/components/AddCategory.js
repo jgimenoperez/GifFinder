@@ -6,7 +6,7 @@ export const AddCategory = ({ setcategories }) => {
 
   const handleImputChange = (e) => {
     //console.log('handleImputChange llamado');
-    setinputvalue(e.target. value);
+    setinputvalue(e.target.value);
   };
 
   const handdleSubmit = (e) => {
